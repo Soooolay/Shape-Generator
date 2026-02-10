@@ -73,6 +73,8 @@ begin
     end if;
 end process;
 
+--vertical counter
+        
 process(clk, reset)
 begin
     if reset = '1' then
@@ -96,7 +98,7 @@ v <= std_logic_vector(to_unsigned(v_count, 10));
 
 -- compartators
 
---h_sync:
+--h_sync comparator:
 process(clk, reset)
 begin
     if reset = '1' then

@@ -59,7 +59,7 @@ signal x_coord: std_logic_vector(9 downto 0);
 signal y_coord: std_logic_vector(9 downto 0);
 begin
 
---generating a 25.173MHz clock using clock wizard
+--generating a 25.173MHz clock using Vivado's clock wizard
 CLOCK_GEN: entity work.clk_wiz_0
 port map (
 clk_in1 => clk,
@@ -68,6 +68,7 @@ clk_out1 => pixel_clk,
 locked => locked
 );
 
+--gate reset so that everything else only starts when clock wizard's generated clock is stable
 reset_g <= reset OR (NOT locked);
 
 VGA : entity work.VGA_CONTROLLER
